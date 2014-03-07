@@ -13,6 +13,8 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'sass-rails', '~> 4.0.0'
