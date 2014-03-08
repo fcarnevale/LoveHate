@@ -4,7 +4,7 @@ require 'vcr_helper'
 
 feature 'Users can learn how good something is' do
   scenario 'User compares two terms' do
-    terms = ["microsoft", "apple"]
+    terms = ["comcast", "the beatles"]
 
     VCR.use_cassette("user-compares-two-terms") do
       terms.each do |term|
@@ -12,7 +12,7 @@ feature 'Users can learn how good something is' do
         @scores[term] = LoveScore.for_term(term)
       end
 
-      @scores["apple"].should be > @scores["microsoft"]
+      @scores["the beatles"].should be > @scores["comcast"]
     end
   end
 end
