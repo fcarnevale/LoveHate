@@ -9,7 +9,7 @@ feature 'Users can learn how good something is' do
     VCR.use_cassette("user-compares-two-terms") do
       terms.each do |term|
         @scores ||= {}
-        @scores[term] = LoveScore.for_term(term)
+        @scores[term] = ScoreCache.for_term(term)
       end
 
       @scores["the beatles"].should be > @scores["comcast"]
