@@ -3,11 +3,13 @@ class CachedScore < ActiveRecord::Base
   end
 
   def self.save_score(term, score)
+    score = nil if score == LoveScore::NoScore
     create!(term: term, score: score)
   end
 
   def self.for_term(term)
     cached_score = find_by(term: term) or raise NoScore
-    cached_score.score
+    score = cached_score.score
+    score.nil? ? LoveScore::NoScore : score
   end
 end

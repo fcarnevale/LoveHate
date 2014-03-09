@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>does it suck?</title>
+  <link rel="stylesheet" type="text/css" href="/love.css"/>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="/love.js"></script>
+</head>
+<body>
+
+<div id="header">
+  <!-- <a href="/"><img src="/header.gif" width="477" height="138" alt="Do people love it? Or hate it?"/></a> -->
+  <h1><a href="/">love/hate</a></h1>
+</div>
+
+<div id="rate">
+  <h2><label for="term">Add search term:</label></h2>
+    <form id="search-form" method="GET" action="/query">
+      <input class="text" type="text" id="term" name="term" autocomplete="off"/>
+    </form>
+    <div id="results">
+      <table class="graph">
+        <thead>
+          <tr>
+            <th colspan="2">term</th>
+              <th id="rating-header" class="right">
+                <span class="graph">rating (higher is better)</span>
+                <span class="details">results (love &bull; hate)</span>
+              </th>
+          </tr>
+        </thead>
+        <tbody id="result-rows"></tbody>
+        <tfoot>
+          <tr>
+            <td><a id="permalink" href="/rate">Link to this</a></td>
+            <td class="right"><a id="sort" href="#">Sort</a></td>
+            <td class="right"><a id="clear" href="/">Clear</a></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+</div>
+
+<div id="sections">
+  <a id="examples-link" class="tab selected" href="#">Examples</a>
+  <a id="latest-link" class="tab" href="#">Latest searches</a>
+  <a id="how-link" class="tab" href="#">How does it work?</a>
+
+  <div id="examples" class="section">
+    <ul>
+      <li><a href="/rate/opera/firefox/konqueror/safari/internet+explorer">web browsers</a></li>
+      <li><a href="/rate/bzr/darcs/git/mercurial/subversion/sourcesafe/bitkeeper/cvs">version control</a></li>
+      <li><a href="/rate/windows/linux/os+x/freebsd">operating systems</a></li>
+      <li><a href="/rate/sprint/at%26t/verizon/cellular+one/nextel/alltel/t-mobile">cell phone providers</a></li>
+      <li><a href="/rate/comcast/bellsouth/ameritech/verizon/time+warner/earthlink/speakeasy">broadband providers</a></li>
+      <li><a href="/rate/javascript/fortran/visual+basic/java/lisp/scheme/perl/php/c/haskell/c%2B%2B/python/erlang/ruby">programming languages</a></li>
+    </ul>
+  </div>
+
+  <div id="latest" class="section">
+    <table id="latest-results" class="graph">
+      <thead>
+        <tr>
+          <th>term</th>
+            <th class="right" colspan="2">
+              <span class="graph">rating</span>
+              <span class="details">results</span>
+            </th>
+          </tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot>
+          <tr>
+              <td colspan="3">Waiting...</td>
+          </tr>
+      </tfoot>
+    </table>
+    <p class="center">This updates every 5 seconds.</p>
+  </div>
+
+  <div id="how" class="section">
+    <p>
+        When you enter a search term, love/hate searches the web for several
+        positive and negative phrases using that term. The score is the fraction
+        of positive results to the sum of positive and negative results, normalized to 10.
+    </p>
+    <p>
+        The negative phrases are: I hate X.
+    </p>
+    <p>
+        The positive phrases are: I love X.
+    </p>
+    <p>
+        <a href="http://developer.yahoo.com/search/">Yahoo's Search API</a> is currently
+        used for results, since <a href="http://code.google.com/apis/soapsearch/">Google's SOAP Search API</a>
+        is deprecated and only allows 1,000 queries per day. Way to go, Google!
+    </p>
+  </div>
+</div>
+
+<div id="footer">
+  <p>Made by franl, direct clone of Gary Bernhardt's sucks/rocks</p>
+  <p>HTML and JS taken from sucks/rocks</p>
+</div>
+
+</body>
+</html>

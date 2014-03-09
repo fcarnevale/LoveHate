@@ -10,5 +10,10 @@ describe CachedScore do
     expect do
       CachedScore.for_term("microsoft")
     end.to raise_error(CachedScore::NoScore)
+  end
+
+  it "round-trips NoScores to the database" do
+    CachedScore.save_score("microsoft", LoveScore::NoScore)
+    CachedScore.for_term("microsoft").should eq LoveScore::NoScore
   end 
 end
